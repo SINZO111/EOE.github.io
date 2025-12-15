@@ -277,15 +277,15 @@
                 <div class="grid md:grid-cols-2 gap-4 text-sm">
                     <div class="bg-white p-3 rounded">
                         <strong>近距離パワー型</strong><br>
-                        高い破壊力とスピードを持つが、射程が短い。オラオララッシュが得意。
+                        高い破壊力とスピードを持つが、射程が短い。直接攻撃等が得意。
                     </div>
                     <div class="bg-white p-3 rounded">
                         <strong>遠隔操作型</strong><br>
                         本体から離れて行動できるが、パワーは低い。偵察や暗殺向き。
                     </div>
                     <div class="bg-white p-3 rounded">
-                        <strong>現象型・異能型</strong><br>
-                        「炎を操る」「本にする」「ジッパーを付ける」など、物理法則を無視した能力。
+                        <strong>自動操縦型</strong><br>
+                        高い破壊力とスピードを持ち本体から離れて行動出来るものが多いが、コントロールが難しかったり、その視線で様子を見れなかったり、単純な動きだったりと扱いが難しい
                     </div>
                 </div>
             </div>
@@ -441,8 +441,25 @@
                         </tbody>
                     </table>
                 </div>
-
-                <!-- 難易度・クリティカル等は前verと同じ -->
+　　　　　　　　　　<div class="mt-6 flex flex-col md:flex-row gap-4">
+                    <div class="flex-1 bg-yellow-100 p-3 rounded border border-yellow-300 text-center">
+                        <strong class="text-yellow-700">🔥 クリティカル (出目1)</strong><br>
+                        <span class="text-sm">絶対成功 ＋ ダイス1個振り足し</span>
+                    </div>
+                    <div class="flex-1 bg-red-100 p-3 rounded border border-red-300 text-center">
+                        <strong class="text-red-700">💀 ディザスター (出目20)</strong><br>
+                        <span class="text-sm">成功数0 かつ 20が出たら大失敗</span>
+                    </div>
+                </div>
+                
+                <div class="mt-4 p-4 border border-gray-300 rounded">
+                    <h4 class="font-bold text-sm">判定の難易度（ダイスボーナス）</h4>
+                    <p class="text-xs text-gray-600">KPは状況に応じて目標値を修正する。ただし<strong class="text-red-600">目標値の上限は19</strong>（20は常に失敗）だ。</p>
+                    <ul class="list-disc list-inside text-sm mt-1">
+                        <li><strong>有利 (Easy)</strong>: 目標値 <strong>+2 〜 +4</strong> (高所、不意打ち、弱点)</li>
+                        <li><strong>不利 (Hard)</strong>: 目標値 <strong>-2 〜 -4</strong> (暗闇、拘束、動揺)</li>
+                    </ul>
+                </div>
             </div>
             
             <div class="mt-4 bg-red-50 p-4 rounded border border-red-200">
@@ -453,13 +470,134 @@
         </section>
 
         <!-- 8. 技能ガイド -->
-        <section id="skills" class="mb-12">
-            <!-- 前verと同じため省略 -->
+         <section id="skills" class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 border-l-8 border-yellow-400 pl-4">8. 技能詳細ガイド</h2>
+            
+            <div class="space-y-4">
+                <details class="group card border-l-4 border-red-500">
+                    <summary>💪 ボディ (体) 系の技能</summary>
+                    <div class="content-box">
+                        <ul class="list-disc list-inside space-y-1 text-sm">
+                            <li><strong>運動</strong>：走る、登る、跳ぶ。「逃げるんだよォ！」の判定に使用。</li>
+                            <li><strong>格闘</strong>：生身での戦闘。波紋の命中判定。</li>
+                            <li><strong>耐久</strong>：毒、病気、拷問への抵抗。死亡判定の生存率。</li>
+                            <li><strong>乗馬</strong>：馬やバイクの操作。</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="group card border-l-4 border-green-500">
+                    <summary>👁️ センス (感) 系の技能</summary>
+                    <div class="content-box">
+                        <ul class="list-disc list-inside space-y-1 text-sm">
+                            <li><strong>目星</strong>：<span class="highlight">最重要。</span>違和感に気づく、隠されたアイテムを見つける。</li>
+                            <li><strong>隠密</strong>：気配を消す、尾行する。</li>
+                            <li><strong>手業</strong>：スリ、イカサマ、機械工作、爆弾解体。</li>
+                            <li><strong>射撃</strong>：銃や投擲武器の扱い。</li>
+                            <li><strong>操縦</strong>：車、船、飛行機の運転。</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="group card border-l-4 border-blue-500">
+                    <summary>🧠 インテリ (知) 系の技能</summary>
+                    <div class="content-box">
+                        <ul class="list-disc list-inside space-y-1 text-sm">
+                            <li><strong>医学</strong>：治療、検死。ヒーラー不在時の命綱。<br>
+                                <span class="text-blue-600 font-bold">※回復量：成功数 d3</span> (成功したダイス1つにつき1d3回復)</li>
+                            <li><strong>分析</strong>：<span class="highlight">情報整理。</span>敵能力の推理、パズル解読。KPからヒントを得られるかもしれない。</li>
+                            <li><strong>調査</strong>：図書館やネットでの情報収集。</li>
+                            <li><strong>知識</strong>：特定分野（生物学、物理学など）の専門知識。</li>
+                        </ul>
+                    </div>
+                </details>
+                
+                <details class="group card border-l-4 border-purple-500">
+                    <summary>🔮 メンタル・チャーム・ラック</summary>
+                    <div class="content-box">
+                        <ul class="list-disc list-inside space-y-1 text-sm">
+                            <li><strong>洞察</strong>(精)：嘘を見抜く、殺気の感知。</li>
+                            <li><strong>オカルト</strong>(精)：スタンドや怪異の知識。</li>
+                            <li><strong>交渉</strong>(魅)：説得、買収。</li>
+                            <li><strong>威圧</strong>(魅)：脅し、情報を吐かせる。</li>
+                            <li><strong>直感</strong>(運)：嫌な予感、第六感。即死トラップ回避。</li>
+                            <li><strong>強運</strong>(運)：偶然の回避（弾丸がコインに当たる等）。</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
         </section>
 
         <!-- 9. 探索パート詳細 -->
-        <section id="exploration" class="mb-12">
-            <!-- 前verと同じため省略 -->
+      <section id="exploration" class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 border-l-8 border-green-500 pl-4 text-green-900">9. 探索パートの進め方</h2>
+            <p class="mb-6">戦闘だけがジョジョじゃない。「奇妙な現象」の謎を解き、敵の正体を暴くプロセスこそが重要だ。<br>KPは「五感」に訴える描写をし、PLはそれに対応する技能を提案してくれ。</p>
+
+            <div class="space-y-6 relative border-l-4 border-gray-300 ml-4 pl-8 pb-4">
+                <!-- Step 1 -->
+                <div class="relative">
+                    <span class="absolute -left-12 top-0 bg-green-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg shadow-lg">1</span>
+                    <h4 class="font-bold text-xl mb-2">違和感の感知</h4>
+                    <div class="bg-white p-4 rounded shadow">
+                        <p class="text-sm mb-2 text-gray-700">
+                            KPは「奇妙な現象」を提示する。（例：階段を降りたはずなのに戻っている、写真に妙なハエが写っている）
+                        </p>
+                        <div class="bg-green-50 p-3 rounded text-sm space-y-2">
+                            <p><strong>【目星】</strong>を振る：「部屋の隅に奇妙な穴がある」「写真の背景が歪んでいる」ことに気づく。万能な探索技能だ。</p>
+                            <p><strong>【直感】</strong>を振る：「この部屋に入ってはいけない」「こいつはヤバイ」という予感を感じ取る。</p>
+                            <p><strong>【洞察】</strong>を振る：NPCの挙動不審さや、汗の量から嘘を見抜く。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative">
+                    <span class="absolute -left-12 top-0 bg-green-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg shadow-lg">2</span>
+                    <h4 class="font-bold text-xl mb-2">情報の分析と推理</h4>
+                    <div class="bg-white p-4 rounded shadow">
+                        <p class="text-sm mb-2 text-gray-700">
+                            手に入れた手がかりを元に推理する。
+                        </p>
+                        <div class="bg-blue-50 p-3 rounded text-sm space-y-2">
+                            <p><strong>【分析】</strong>を振る：現象から敵の「射程距離」や「発動条件」を論理的に推測する。<br>
+                            ※「振れば答えが出る」わけではなく、KPから「推論の材料（ヒント）」を得て、PL自身が答えを導き出す手助けになる。</p>
+                            <p><strong>【医学】</strong>を振る：死体の傷口（切り口、凍傷、干からびている等）から、どんな攻撃を受けたか特定する。</p>
+                        </div>
+                        <p class="text-xs text-red-600 font-bold mt-2">★ここで敵の正体を見破れると、戦闘時の目標値にボーナスが入る可能性があるぞ（KP裁定）！</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative">
+                    <span class="absolute -left-12 top-0 bg-green-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg shadow-lg">3</span>
+                    <h4 class="font-bold text-xl mb-2">スタンドの活用 (STP消費)</h4>
+                    <div class="bg-white p-4 rounded shadow">
+                        <p class="text-sm mb-2 text-gray-700">
+                            人間には不可能な調査にはスタンドを使う（STP消費2）。
+                        </p>
+                        <div class="bg-purple-50 p-3 rounded text-sm space-y-2">
+                            <p><strong>【破壊力】</strong>：瓦礫をどかす、ドアをこじ開ける。</p>
+                            <p><strong>【精密動作】</strong>：指紋を採取する、遠くの会話を読唇術で読む、ハエのスケッチ。</p>
+                            <p><strong>【射程距離】</strong>：自分は安全な場所にいて、隣の部屋を偵察する。</p>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-2">※一般人の前でスタンドを使うことは「奇妙な噂」を広めるリスクになるぞ。</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative">
+                    <span class="absolute -left-12 top-0 bg-purple-800 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">!</span>
+                    <h4 class="font-bold text-xl mb-2 text-purple-900">怪異との遭遇</h4>
+                    <div class="bg-purple-100 p-4 rounded border border-purple-300">
+                        <p class="text-sm font-bold mb-2">「決して後ろを振り向いてはいけない」</p>
+                        <p class="text-sm">
+                            怪異や幽霊は、スタンド攻撃（物理）が通じないことが多い。<br>
+                            これらに対処するには、提示された<strong>「ルール」や「マナー」</strong>を守り、儀式を行ったり、あるいは全力で逃走することが正解となる。<br>
+                            無理に戦おうとすれば、即死級のペナルティを受けるだろう。
+                        </p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- 10. 戦闘・ラウンド -->
@@ -500,12 +638,13 @@
                         <p class="mb-2 font-bold text-pink-700">B. 能力攻撃（特殊・異能）</p>
                         <ul class="text-xs text-gray-600 pl-4 mb-3 list-disc">
                             <li>火炎、氷結、毒、飛び道具など。</li>
-                            <li>判定：KPが指定する（通常は精密動作性）。</li>
+                            <li>判定：KPが指定する（通常は精密動作性、あるいは本体のセンス）。</li>
                             <li><strong>ダメージ ＝ KPが設定した基準値</strong>（例：固定3点、1d6点など）</li>
                         </ul>
                         <p class="mb-2"><strong>B. 移動</strong>：攻撃を放棄し、距離エリアを変更する。</p>
                         <p class="text-xs text-gray-600 pl-4">【スピード】や【運動】で判定。成功で1エリア移動。</p>
-                    </div>
+　　　　　　　　　　　　　<p class="text-xs text-gray-600 pl-4">生身での攻撃はボディや格闘。銃器等は射撃で判定。</p>
+                        </div>
                 </div>
 
                 <div class="card p-4 border-l-8 border-blue-600 bg-blue-50">
