@@ -168,13 +168,33 @@
                 </details>
 
                 </details>
-                <!-- 他の舞台例は省略（前verと同じ） -->
             </div>
         </section>
 
-        <!-- 3. 準備・役割 -->
+<!-- 3. 準備・役割 -->
         <section id="prep" class="mb-16">
-            <!-- 前verと同じため省略 -->
+            <h2 class="text-3xl font-bold mb-6 border-l-8 border-yellow-400 pl-4">3. 準備と役割</h2>
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="font-bold text-lg border-b pb-2 mb-4">用意するもの</h3>
+                <ul class="space-y-2 mb-6">
+                    <li>🎲 <strong>20面ダイス (d20)</strong>：メイン判定用。1人5〜10個あると良い（アプリ可）。</li>
+                    <li>🎲 <strong>100面ダイス (d100/d50)</strong>：精神力判定用。d10×2個でも代用可。</li>
+                    <li>📝 <strong>キャラクターシート</strong>：配布ツールを使おう。</li>
+                    <li>🖊️ <strong>筆記用具・メモ</strong>：謎解きや情報の整理に必須だ。</li>
+                    <li>🔥 <strong>覚悟</strong>：困難に立ち向かう心。</li>
+                </ul>
+                <h3 class="font-bold text-lg border-b pb-2 mb-4">プレイヤーとゲームマスター</h3>
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="flex-1 bg-blue-50 p-4 rounded">
+                        <strong>プレイヤー (PL)</strong><br>
+                        「本体」となるキャラクター（PC）を作成し、演じる。スタンドを操り、KPが提示する試練に挑むんだ。
+                    </div>
+                    <div class="flex-1 bg-red-50 p-4 rounded">
+                        <strong>キーパー (KP)</strong><br>
+                        ゲームマスター（GM）のことだ。シナリオを用意し、舞台の状況描写、NPCや敵の操作、ルールの裁定を行う。
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- 4. 本体作成 -->
@@ -218,14 +238,162 @@
         </section>
 
         <!-- 5. スタンド -->
-        <section id="stand" class="mb-16">
-            <!-- 前verと同じため省略（一心同体・半覚醒・パラメータ・能力等） -->
+      <section id="stand" class="mb-16">
+            <h2 class="text-3xl font-bold mb-6 border-l-8 border-purple-500 pl-4 text-purple-900">5. スタンド（幽波紋）</h2>
+            
+            <div class="mb-6">
+                <p class="text-xl font-bold italic text-center mb-4 text-gray-700">
+                    「傍にいて、貴方と共に試練に立ち向かう者」
+                </p>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="card p-5 bg-purple-900 text-white">
+                        <h4 class="font-bold border-b border-purple-500 pb-2 mb-2">🛡️ 一心同体ルール</h4>
+                        <p class="text-sm">
+                            原則として、スタンドは独自のHPを持たない。<br>
+                            スタンドへのダメージは<strong>本体のHP</strong>から減る。<br>
+                            逆に、本体が回復すればスタンドの傷も癒える。<br>
+                            （自動操縦型など、例外的にダメージ共有しないタイプも存在する）
+                        </p>
+                    </div>
+                    <div class="card p-5 bg-gray-800 text-white">
+                        <h4 class="font-bold border-b border-gray-500 pb-2 mb-2">👻 半覚醒（ハーフ・アウェイク）</h4>
+                        <p class="text-sm">
+                            新規作成時、PCはまだスタンドを完全には使えない「半端者」だ。<br>
+                            <strong>「視える」</strong>が<strong>「触れない」</strong>状態。<br>
+                            敵の攻撃を回避することは可能だが、反撃はできない。<br>
+                            セッション中の危機でKPが<strong>「覚醒」</strong>を宣言した時、真の能力が発現するぞ。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- スタンド能力 -->
+            <div class="card bg-purple-50 p-6 mb-6 border border-purple-200">
+                <h3 class="text-xl font-bold text-purple-900 mb-4">🌟 スタンドの固有能力</h3>
+                <p class="text-sm text-gray-700 mb-4">
+                    パラメータ（破壊力やスピード）とは別に、そのスタンドだけが持つ**「特殊な能力」**を設定します。<br>
+                    KPと相談して、「何ができて、何ができないか（ルール）」を決めましょう。
+                </p>
+                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                    <div class="bg-white p-3 rounded">
+                        <strong>近距離パワー型</strong><br>
+                        高い破壊力とスピードを持つが、射程が短い。オラオララッシュが得意。
+                    </div>
+                    <div class="bg-white p-3 rounded">
+                        <strong>遠隔操作型</strong><br>
+                        本体から離れて行動できるが、パワーは低い。偵察や暗殺向き。
+                    </div>
+                    <div class="bg-white p-3 rounded">
+                        <strong>現象型・異能型</strong><br>
+                        「炎を操る」「本にする」「ジッパーを付ける」など、物理法則を無視した能力。
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-xl font-bold mb-3">パラメータ詳細 (A:5 〜 E:1)</h3>
+            <p class="text-sm mb-4 text-gray-600">パラメータは「判定で振れるダイスの数」や「成功のしやすさ（目標値）」に直結する。</p>
+            
+            <div class="space-y-2">
+                <details class="group bg-white p-2 rounded border border-purple-200">
+                    <summary class="font-bold text-purple-800">✊ 破壊力 (Power)</summary>
+                    <div class="content-box text-sm">
+                        <ul class="list-disc list-inside">
+                            <li><strong>攻撃時のダイス数</strong>： 数が多いほど大ダメージを与えられる。</li>
+                            <li><strong>パワー</strong>： 重いものを持ち上げる、硬いものを壊す判定に使う。</li>
+                        </ul>
+                    </div>
+                </details>
+                <details class="group bg-white p-2 rounded border border-blue-200">
+                    <summary class="font-bold text-blue-800">⚡ スピード (Speed)</summary>
+                    <div class="content-box text-sm">
+                        <ul class="list-disc list-inside">
+                            <li><strong>回避時のダイス数</strong>： 数が多いほど敵の攻撃を無効化できる。</li>
+                            <li><strong>イニシアティブ</strong>： 行動順の計算に使われる。高いほど先手を取れる。</li>
+                        </ul>
+                    </div>
+                </details>
+                <details class="group bg-white p-2 rounded border border-green-200">
+                    <summary class="font-bold text-green-800">📡 射程距離 (Range)</summary>
+                    <div class="content-box text-sm">
+                        <ul class="list-disc list-inside">
+                            <li><strong>遠隔操作</strong>： 本体からどれだけ離れて行動できるか。</li>
+                            <li><strong>攻撃範囲</strong>： 近距離しか殴れないか、遠くから狙撃できるか。</li>
+                        </ul>
+                    </div>
+                </details>
+                <details class="group bg-white p-2 rounded border border-yellow-200">
+                    <summary class="font-bold text-yellow-800">🛡️ 持続力 (Durability)</summary>
+                    <div class="content-box text-sm">
+                        <ul class="list-disc list-inside">
+                            <li><strong>防御時のダイス数</strong>： 数が多いほどダメージを軽減できる。</li>
+                            <li><strong>STP最大値</strong>： スタンドのスタミナ上限に関わる。</li>
+                        </ul>
+                    </div>
+                </details>
+                <details class="group bg-white p-2 rounded border border-red-200">
+                    <summary class="font-bold text-red-800">🎯 精密動作性 (Precision)</summary>
+                    <div class="content-box text-sm">
+                        <ul class="list-disc list-inside">
+                            <li><strong>攻撃の命中率</strong>： このランクが高いほど「目標値」が高くなり、攻撃が当たりやすくなる（Aなら18以下で命中、Eなら2以下）。</li>
+                            <li><strong>探索</strong>： 指紋を探す、機械を操作するなどの精密作業に使う。</li>
+                        </ul>
+                    </div>
+                </details>
+                <details class="group bg-white p-2 rounded border border-gray-200">
+                    <summary class="font-bold text-gray-800">🌱 成長性 (Potential)</summary>
+                    <div class="content-box text-sm">
+                        <ul class="list-disc list-inside">
+                            <li><strong>成長速度</strong>： セッション後の成長しやすさ。</li>
+                            <li><strong>ヒラメキ</strong>： とっさの機転や、能力の応用を思いつく判定に使う。</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
         </section>
 
         <!-- 6. 敵・怪異 -->
-        <section id="enemy" class="mb-16">
-            <!-- 前verと同じため省略 -->
-        </section>
+<section id="enemy" class="mb-16">
+            <h2 class="text-3xl font-bold mb-6 border-l-8 border-indigo-500 pl-4">6. 敵・怪異・吸血鬼</h2>
+            <p class="mb-4 text-gray-700">PCの前に立ちはだかるのは、敵スタンド使いだけじゃない。</p>
+
+            <div class="space-y-4">
+                <details class="group bg-white p-4 rounded shadow border-l-4 border-red-400">
+                    <summary class="flex justify-between items-center">
+                        <span class="font-bold text-red-800">👿 スタンド使い</span>
+                        <span class="text-xs text-gray-500">▼詳細</span>
+                    </summary>
+                    <div class="content-box text-sm">
+                        最も一般的な敵。PC同様のルールで動くが、敵専用の強力なルール（「相手の嘘を確実に暴く」「背後を見たら即死させる」など）を持つ場合がある。
+                    </div>
+                </details>
+                
+                <details class="group bg-white p-4 rounded shadow border-l-4 border-indigo-600">
+                    <summary class="flex justify-between items-center">
+                        <span class="font-bold text-indigo-900">👻 怪異（超常現象・神・幽霊）</span>
+                        <span class="text-xs text-gray-500">▼詳細</span>
+                    </summary>
+                    <div class="content-box text-sm">
+                        <p class="mb-2"><strong>【定義】</strong><br>
+                        人間の理解を超えた超常的な現象や存在（妖怪、神、呪い、独り歩きしているスタンド、別次元的存在、宇宙人、その他諸々）だ。</p>
+                        <p class="mb-2"><strong>【対処法】</strong><br>
+                        これらは単純なスタンド攻撃（暴力）では倒せないことがほとんどだ。<br>
+                        <span class="highlight">「怪異ごとのルール（後ろを振り向いてはいけない、マナーを守る等）」に従ったり、儀式を行って対処したり、あるいは全力で逃げることが大切だ。</span></p>
+                        <p><strong>【戦える怪異】</strong><br>
+                        中には物理的な実体を持ち、スタンドで殴り倒せる怪異も存在する。その場合、通常の戦闘ルールで処理するが、特殊な耐性を持っていることがある。</p>
+                    </div>
+                </details>
+                <details class="group bg-white p-4 rounded shadow border-l-4 border-gray-400">
+                    <summary class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">🧛 吸血鬼・屍生人</span>
+                        <span class="text-xs text-gray-500">▼詳細</span>
+                    </summary>
+                    <div class="content-box text-sm">
+                        石仮面の力で人間を超越した存在。驚異的な身体能力と再生能力を持つが、太陽の光や「波紋」に弱い。<br>
+                        HPが尽きても首だけで襲いかかってくる執念深さを持ちます。
+                    </div>
+                </details>
+            </div>
+</section>
 
         <!-- 7. 判定ルール -->
         <section id="rules" class="mb-12">
