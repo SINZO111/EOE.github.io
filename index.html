@@ -320,7 +320,44 @@
                         <li><strong>スタンド使い</strong>： <code>スピード ＋ 体 ＋ 運動Lv</code></li>
                     </ul>
                 </div>
-                <!-- 手番処理は省略 -->
+               <div class="card p-4 border-l-8 border-purple-600 bg-purple-50">
+                    <h4 class="font-bold text-purple-900">② 自分の手番 (スタンドonの場合毎ターンSTP-2、スタンド行動STP-2)</h4>
+                    <div class="text-sm mt-2">
+                        <p class="mb-2"><strong>A. 攻撃</strong>：<code>【破壊力】数 B20 <= 目標値(精密依存)</code></p>
+                        <ul class="text-xs text-gray-600 pl-4 mb-3 list-disc">
+                            <li>目標値は精密A:18, B:14, C:10, D:6, E:2</li>
+                            <li>成功数がそのままダメージになります。</li>
+                            <li>人型でスピードB以上なら「ラッシュ」も可能。ラッシュはラッシュに対して対抗が可能。成功数1につきダメージ軽減。相手の成功数を超えた場合分を超えた分を相手にカウンターとしてダメージを与えれる</li>
+                        </ul>
+                        <p class="mb-2 font-bold text-pink-700">B. 能力攻撃（特殊・異能）</p>
+                        <ul class="text-xs text-gray-600 pl-4 mb-3 list-disc">
+                            <li>火炎、氷結、毒、飛び道具など。</li>
+                            <li>判定：KPが指定する（通常は精密動作性）。</li>
+                            <li><strong>ダメージ ＝ KPが設定した基準値</strong>（例：固定3点、1d6点など）</li>
+                        </ul>
+                        <p class="mb-2"><strong>B. 移動</strong>：攻撃を放棄し、距離エリアを変更する。</p>
+                        <p class="text-xs text-gray-600 pl-4">【スピード】や【運動】で判定。成功で1エリア移動。</p>
+                    </div>
+                </div>
+
+                <div class="card p-4 border-l-8 border-blue-600 bg-blue-50">
+                    <h4 class="font-bold text-blue-900">③ 相手の手番 (スタンド行動STP-2)</h4>
+                    <div class="text-sm mt-2">
+                        <p><strong>A. 回避</strong>：<code>【スピード】数 B20 <= 本体センス×3</code></p>
+                        <p class="text-xs text-gray-500 pl-4 mb-2">→ 成功数1につきヒット数-1。</p>
+                        <p><strong>B. 防御</strong>：<code>【持続力】数 B20 <= 本体メンタル×3</code></p>
+                        <p class="text-xs text-gray-500 pl-4">→ 成功数1につきダメージ軽減。</p>
+                    </div>
+                </div>
+
+                <div class="card p-4 border-l-8 border-red-600 bg-red-50">
+                    <h4 class="font-bold text-red-900">④ ダメージ確定</h4>
+                    <p class="text-lg font-black text-center mt-2">
+                        最終ダメージ ＝ (攻撃成功数) ー (防御成功数)
+                    </p>
+                </div>
+            </div>
+        </section>
             </div>
         </section>
 
@@ -436,6 +473,8 @@
                     <div class="bg-white p-4 rounded shadow">
                         <h4 class="font-bold text-sm mb-2">能力に「ルール」を持たせる</h4>
                         <p class="text-xs text-gray-600">単に「火を操る」だけでなく、「ライターの火を増幅することしかできない」「円の中でしか燃やせない」などの制約をつけると、攻略の糸口になる。またパラメータや能力値に迷ったらオリスタやスタンド診断メーカー等を参考にするといいだろう</p>
+                        <h4 class="font-bold text-sm mb-2">能力攻撃のダメージ定義</h4> <p class="text-xs text-gray-600">火炎や飛び道具など、直接攻撃以外の能力を持たせる場合、あらかじめ「基準ダメージ（例：固定3点、1d6点）」を決めておくこと</p>
+
                     </div>
                 </div>
             </div>
