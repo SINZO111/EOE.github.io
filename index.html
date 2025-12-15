@@ -95,7 +95,7 @@
             <a href="#enemy" class="sidebar-link">6. 敵・怪異・吸血鬼</a>
             
             <p class="px-6 py-2 mt-4 text-xs font-bold text-gray-500 uppercase tracking-wider">03. データ</p>
-            <a href="#stats" class="sidebar-link">7. 能力値とリソース</a>
+            <a href="#stats" class="sidebar-link">7. HP/SP/STP管理</a>
             <a href="#skills" class="sidebar-link">8. 技能詳細</a>
             
             <p class="px-6 py-2 mt-4 text-xs font-bold text-gray-500 uppercase tracking-wider">04. ルール</p>
@@ -394,8 +394,90 @@
                 </details>
             </div>
 </section>
+  <!-- 7. リソース管理 -->
+        <section id="resources" class="mb-16">
+            <h2 class="text-3xl font-bold mb-6 border-l-8 border-yellow-400 pl-4">11. HP / SP / STP 管理</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="bg-red-100 p-4 rounded border border-red-300">
+                    <h4 class="font-bold text-red-800">HP (生命力)</h4>
+                    <p class="text-sm mt-2">0で<strong>心肺停止となり毎ターンの生存判定失敗で完全ロスト</strong>。</p>
+                    <p class="text-xs text-gray-600">スタンドとHPは共有。（一部例外あり）</p>
+                </div>
+                <div class="bg-purple-100 p-4 rounded border border-purple-300">
+                    <h4 class="font-bold text-purple-800">SP (精神力)</h4>
+                    <p class="text-sm mt-2">0で<strong>魂値がなくなり完全ロスト</strong>。</p>
+                    <p><strong>恐怖判定</strong>: <code>1D50 <= SP</code></p>
+                    <p><strong>覚悟</strong>: SP1消費 → STP2回復</p>
+                    </div>
+                </div>
+                <div class="bg-green-100 p-4 rounded border border-green-300">
+                    <h4 class="font-bold text-green-800">STP (スタミナ)</h4>
+                    <p class="text-sm mt-2">0でスタンド強制解除。</p>
+                    <ul class="text-xs text-left mt-2 pl-4 list-disc">
+                        <li>消費：行動-2 / ターン経過-1</li>
+                        <li>回復：ON待機+2 / OFF待機+5</li>
+                </div>
+            </div>
+        </section>
+        <!-- 8. 技能ガイド -->
+         <section id="skills" class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 border-l-8 border-yellow-400 pl-4">8. 技能詳細ガイド</h2>
+            
+            <div class="space-y-4">
+                <details class="group card border-l-4 border-red-500">
+                    <summary>💪 ボディ (体) 系の技能</summary>
+                    <div class="content-box">
+                        <ul class="list-disc list-inside space-y-1 text-sm">
+                            <li><strong>運動</strong>：走る、登る、跳ぶ。「逃げるんだよォ！」の判定に使用。</li>
+                            <li><strong>格闘</strong>：生身での戦闘。波紋の命中判定。</li>
+                            <li><strong>耐久</strong>：毒、病気、拷問への抵抗。死亡判定の生存率。</li>
+                            <li><strong>乗馬</strong>：馬やバイクの操作。</li>
+                        </ul>
+                    </div>
+                </details>
 
-        <!-- 7. 判定ルール -->
+                <details class="group card border-l-4 border-green-500">
+                    <summary>👁️ センス (感) 系の技能</summary>
+                    <div class="content-box">
+                        <ul class="list-disc list-inside space-y-1 text-sm">
+                            <li><strong>目星</strong>：<span class="highlight">最重要。</span>違和感に気づく、隠されたアイテムを見つける。</li>
+                            <li><strong>隠密</strong>：気配を消す、尾行する。</li>
+                            <li><strong>手業</strong>：スリ、イカサマ、機械工作、爆弾解体。</li>
+                            <li><strong>射撃</strong>：銃や投擲武器の扱い。</li>
+                            <li><strong>操縦</strong>：車、船、飛行機の運転。</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="group card border-l-4 border-blue-500">
+                    <summary>🧠 インテリ (知) 系の技能</summary>
+                    <div class="content-box">
+                        <ul class="list-disc list-inside space-y-1 text-sm">
+                            <li><strong>医学</strong>：治療、検死。ヒーラー不在時の命綱。<br>
+                                <span class="text-blue-600 font-bold">※回復量：成功数 d3</span> (成功したダイス1つにつき1d3回復)</li>
+                            <li><strong>分析</strong>：<span class="highlight">情報整理。</span>敵能力の推理、パズル解読。KPからヒントを得られるかもしれない。</li>
+                            <li><strong>調査</strong>：図書館やネットでの情報収集。</li>
+                            <li><strong>知識</strong>：特定分野（生物学、物理学など）の専門知識。</li>
+                        </ul>
+                    </div>
+                </details>
+                
+                <details class="group card border-l-4 border-purple-500">
+                    <summary>🔮 メンタル・チャーム・ラック</summary>
+                    <div class="content-box">
+                        <ul class="list-disc list-inside space-y-1 text-sm">
+                            <li><strong>洞察</strong>(精)：嘘を見抜く、殺気の感知。</li>
+                            <li><strong>オカルト</strong>(精)：スタンドや怪異の知識。</li>
+                            <li><strong>交渉</strong>(魅)：説得、買収。</li>
+                            <li><strong>威圧</strong>(魅)：脅し、情報を吐かせる。</li>
+                            <li><strong>直感</strong>(運)：嫌な予感、第六感。即死トラップ回避。</li>
+                            <li><strong>強運</strong>(運)：偶然の回避（弾丸がコインに当たる等）。</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </section>
+        <!-- 9. 判定ルール -->
         <section id="rules" class="mb-12">
             <h2 class="text-3xl font-bold mb-6 border-l-8 border-yellow-400 pl-4">7. 判定ルール (d20 System)</h2>
             <div class="card p-6 bg-gray-50">
@@ -469,66 +551,8 @@
             </div>
         </section>
 
-        <!-- 8. 技能ガイド -->
-         <section id="skills" class="mb-12">
-            <h2 class="text-3xl font-bold mb-6 border-l-8 border-yellow-400 pl-4">8. 技能詳細ガイド</h2>
-            
-            <div class="space-y-4">
-                <details class="group card border-l-4 border-red-500">
-                    <summary>💪 ボディ (体) 系の技能</summary>
-                    <div class="content-box">
-                        <ul class="list-disc list-inside space-y-1 text-sm">
-                            <li><strong>運動</strong>：走る、登る、跳ぶ。「逃げるんだよォ！」の判定に使用。</li>
-                            <li><strong>格闘</strong>：生身での戦闘。波紋の命中判定。</li>
-                            <li><strong>耐久</strong>：毒、病気、拷問への抵抗。死亡判定の生存率。</li>
-                            <li><strong>乗馬</strong>：馬やバイクの操作。</li>
-                        </ul>
-                    </div>
-                </details>
-
-                <details class="group card border-l-4 border-green-500">
-                    <summary>👁️ センス (感) 系の技能</summary>
-                    <div class="content-box">
-                        <ul class="list-disc list-inside space-y-1 text-sm">
-                            <li><strong>目星</strong>：<span class="highlight">最重要。</span>違和感に気づく、隠されたアイテムを見つける。</li>
-                            <li><strong>隠密</strong>：気配を消す、尾行する。</li>
-                            <li><strong>手業</strong>：スリ、イカサマ、機械工作、爆弾解体。</li>
-                            <li><strong>射撃</strong>：銃や投擲武器の扱い。</li>
-                            <li><strong>操縦</strong>：車、船、飛行機の運転。</li>
-                        </ul>
-                    </div>
-                </details>
-
-                <details class="group card border-l-4 border-blue-500">
-                    <summary>🧠 インテリ (知) 系の技能</summary>
-                    <div class="content-box">
-                        <ul class="list-disc list-inside space-y-1 text-sm">
-                            <li><strong>医学</strong>：治療、検死。ヒーラー不在時の命綱。<br>
-                                <span class="text-blue-600 font-bold">※回復量：成功数 d3</span> (成功したダイス1つにつき1d3回復)</li>
-                            <li><strong>分析</strong>：<span class="highlight">情報整理。</span>敵能力の推理、パズル解読。KPからヒントを得られるかもしれない。</li>
-                            <li><strong>調査</strong>：図書館やネットでの情報収集。</li>
-                            <li><strong>知識</strong>：特定分野（生物学、物理学など）の専門知識。</li>
-                        </ul>
-                    </div>
-                </details>
-                
-                <details class="group card border-l-4 border-purple-500">
-                    <summary>🔮 メンタル・チャーム・ラック</summary>
-                    <div class="content-box">
-                        <ul class="list-disc list-inside space-y-1 text-sm">
-                            <li><strong>洞察</strong>(精)：嘘を見抜く、殺気の感知。</li>
-                            <li><strong>オカルト</strong>(精)：スタンドや怪異の知識。</li>
-                            <li><strong>交渉</strong>(魅)：説得、買収。</li>
-                            <li><strong>威圧</strong>(魅)：脅し、情報を吐かせる。</li>
-                            <li><strong>直感</strong>(運)：嫌な予感、第六感。即死トラップ回避。</li>
-                            <li><strong>強運</strong>(運)：偶然の回避（弾丸がコインに当たる等）。</li>
-                        </ul>
-                    </div>
-                </details>
-            </div>
-        </section>
-
-        <!-- 9. 探索パート詳細 -->
+        
+        <!-- 10. 探索パート詳細 -->
       <section id="exploration" class="mb-12">
             <h2 class="text-3xl font-bold mb-6 border-l-8 border-green-500 pl-4 text-green-900">9. 探索パートの進め方</h2>
             <p class="mb-6">戦闘だけがジョジョじゃない。「奇妙な現象」の謎を解き、敵の正体を暴くプロセスこそが重要だ。<br>KPは「五感」に訴える描写をし、PLはそれに対応する技能を提案してくれ。</p>
@@ -600,7 +624,7 @@
             </div>
         </section>
 
-        <!-- 10. 戦闘・ラウンド -->
+        <!-- 11. 戦闘・ラウンド -->
         <section id="combat" class="mb-16">
             <h2 class="text-3xl font-bold mb-6 border-l-8 border-red-500 pl-4 text-red-900">10. 戦闘・ラウンド進行</h2>
             
@@ -665,25 +689,6 @@
                 </div>
             </div>
         </section>
-            </div>
-        </section>
-
-        <!-- 11. リソース管理 -->
-        <section id="resources" class="mb-16">
-            <h2 class="text-3xl font-bold mb-6 border-l-8 border-yellow-400 pl-4">11. HP / SP / STP 管理</h2>
-            <div class="grid md:grid-cols-3 gap-4 text-center">
-                <div class="bg-red-100 p-4 rounded border border-red-300">
-                    <h4 class="font-bold text-red-800">HP (生命力)</h4>
-                    <p class="text-sm mt-2">0で<strong>心肺停止</strong>。</p>
-                </div>
-                <div class="bg-purple-100 p-4 rounded border border-purple-300">
-                    <h4 class="font-bold text-purple-800">SP (精神力)</h4>
-                    <p class="text-sm mt-2">0で<strong>完全ロスト</strong>。</p>
-                </div>
-                <div class="bg-green-100 p-4 rounded border border-green-300">
-                    <h4 class="font-bold text-green-800">STP (スタミナ)</h4>
-                    <p class="text-sm mt-2">0でスタンド強制解除。</p>
-                </div>
             </div>
         </section>
 
