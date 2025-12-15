@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ジョジョの奇妙な冒険 TRPG　ECHOES OF ETERNITY - </title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Antique+Soft&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --jojo-purple: #6b21a8;
+        --jojo-gold: #fbbf24;
+        --jojo-pink: #db2777;
+        --bg-pattern: #f3f4f6;
+    }
+    body {
+        font-family: 'Noto Sans JP', sans-serif;
+        background-color: var(--bg-pattern);
+        color: #1f2937;
+        background-image: 
+            linear-gradient(45deg, #e5e7eb 25%, transparent 25%, transparent 75%, #e5e7eb 75%, #e5e7eb),
+            linear-gradient(45deg, #e5e7eb 25%, transparent 25%, transparent 75%, #e5e7eb 75%, #e5e7eb);
+        background-size: 20px 20px;
+        background-position: 0 0, 10px 10px;
+        scroll-behavior: smooth;
+    }
+    h1, h2, h3, h4 {
+        font-family: 'Zen Antique Soft', serif;
+        letter-spacing: 0.05em;
+    }
+    .menacing { position: relative; display: inline-block; }
+    .menacing::before {
+        content: 'ゴ'; position: absolute; top: -15px; right: -20px;
+        font-size: 1.2rem; font-weight: 900; color: var(--jojo-purple); opacity: 0.4;
+        animation: float 3s infinite ease-in-out;
+    }
+    .menacing::after {
+        content: 'ゴ'; position: absolute; top: -25px; right: -10px;
+        font-size: 0.9rem; font-weight: 900; color: var(--jojo-purple); opacity: 0.4;
+        animation: float 3s infinite ease-in-out 0.5s;
+    }
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+    }
+    .sidebar-link {
+        display: block; padding: 0.6rem 1.2rem; transition: all 0.2s;
+        border-left: 4px solid transparent; font-size: 0.9rem;
+    }
+    .sidebar-link:hover { background-color: rgba(255,255,255,0.1); color: var(--jojo-gold); }
+    .sidebar-link.active { background-color: var(--jojo-purple); color: white; border-left: 4px solid var(--jojo-gold); }
+    
+    .card {
+        background: white; border: 2px solid #1f2937; box-shadow: 4px 4px 0px var(--jojo-purple);
+        margin-bottom: 1.5rem; padding: 1.5rem; transition: transform 0.2s;
+    }
+    .card:hover { transform: translate(-1px, -1px); box-shadow: 6px 6px 0px var(--jojo-pink); }
+    
+    .highlight { background: linear-gradient(transparent 60%, #fde047 60%); font-weight: bold; padding: 0 2px; }
+    .quote { border-left: 4px solid var(--jojo-purple); padding-left: 1rem; color: #4b5563; font-style: italic; margin: 1rem 0; }
+    
+    details summary {
+        cursor: pointer; list-style: none; font-weight: bold; padding: 0.75rem;
+        background-color: #f9fafb; border-bottom: 1px solid #e5e7eb; transition: background 0.2s;
+        display: flex; justify-content: space-between; align-items: center;
+    }
+    details summary:hover { background-color: #f3f4f6; color: var(--jojo-purple); }
+    details[open] summary { border-bottom: 2px solid var(--jojo-purple); background-color: #f3e8ff; }
+    details summary::after { content: '+'; font-size: 1.2rem; }
+    details[open] summary::after { content: '-'; }
+    .content-box { padding: 1rem; line-height: 1.7; }
+
+    .data-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.95rem; }
+    .data-table th { background: #1f2937; color: white; padding: 0.75rem; text-align: left; border: 1px solid #374151; }
+    .data-table td { border: 1px solid #e5e7eb; padding: 0.75rem; vertical-align: top; }
+    .data-table tr:nth-child(even) { background-color: #f9fafb; }
+</style>
+</head>
+<body class="flex flex-col md:flex-row min-h-screen">
+
+    <nav class="bg-gray-900 text-gray-300 w-full md:w-72 flex-shrink-0 md:h-screen md:sticky md:top-0 overflow-y-auto z-50 shadow-2xl">
+        <div class="p-6 bg-purple-900 text-white shadow-lg sticky top-0 z-10">
+            <h1 class="text-2xl font-black text-yellow-400 italic">JOJO TRPG</h1>
+            <p class="text-xs text-purple-200 mt-1 tracking-widest font-sans">ECHOES OF ETERNITY<br>ジョジョの奇妙な冒険 永遠の残響</p>
+        </div></h1>
+        <div class="py-2">
+            <p class="px-6 py-2 text-xs font-bold text-gray-500 uppercase tracking-wider">01. 導入と世界</p>
+            <a href="#intro" class="sidebar-link">1. はじめに</a>
+            <a href="#world" class="sidebar-link">2. 世界観・舞台</a>
+            <a href="#prep" class="sidebar-link">3. 準備と役割</a>
+            
+            <p class="px-6 py-2 mt-4 text-xs font-bold text-gray-500 uppercase tracking-wider">02. キャラクター</p>
+            <a href="#character" class="sidebar-link text-indigo-300">4. 本体作成</a>
+            <a href="#stand" class="sidebar-link text-purple-300">5. スタンド定義</a>
+            <a href="#enemy" class="sidebar-link">6. 敵・怪異・吸血鬼</a>
+            
+            <p class="px-6 py-2 mt-4 text-xs font-bold text-gray-500 uppercase tracking-wider">03. データ</p>
+            <a href="#stats" class="sidebar-link">7. 能力値とリソース</a>
+            <a href="#skills" class="sidebar-link">8. 技能詳細</a>
+            
+            <p class="px-6 py-2 mt-4 text-xs font-bold text-gray-500 uppercase tracking-wider">04. ルール</p>
+            <a href="#rules" class="sidebar-link text-yellow-200">9. 判定ルール(d20)</a>
+            <a href="#exploration" class="sidebar-link text-green-300">10. 探索パート詳細</a>
+            <a href="#combat" class="sidebar-link text-red-300">11. 戦闘・ラウンド</a>
+            <a href="#damage" class="sidebar-link text-red-400">12. ダメージと生死</a>
+            <a href="#reward" class="sidebar-link">13. 報酬と成長</a>
+            
+            <p class="px-6 py-2 mt-4 text-xs font-bold text-gray-500 uppercase tracking-wider">05. KPガイド</p>
+            <a href="#kp-stand" class="sidebar-link text-blue-300">14. KP：スタンド作成</a>
+            <a href="#kp-enemy" class="sidebar-link text-blue-300">15. KP：敵データ</a>
+            <a href="#kp-scenario" class="sidebar-link text-blue-300">16. KP：シナリオ作成</a>
+        </div>
+    </nav>
+
+    <main class="flex-1 p-4 md:p-12 max-w-5xl mx-auto w-full">
+
+        <!-- 1. イントロダクション -->
+        <section id="intro" class="mb-16 pt-4">
+            <h2 class="text-4xl font-bold border-b-4 border-purple-800 pb-2 mb-6 inline-block menacing">1. イントロダクション</h2>
+            
+            <div class="card p-8">
+                <h3 class="text-2xl font-bold text-purple-800 mb-3">運命のダイスを振る準備はいいか？</h3>
+                <p class="mb-4 leading-relaxed">
+                    このTRPGは、荒木飛呂彦先生の漫画『ジョジョの奇妙な冒険』の世界観をベースにした、オリジナルTRPGシステムだ。<br>
+                    プレイヤーは運命に選ばれた<strong>「スタンド使い」</strong>となり、知恵と勇気、そして<span class="highlight">「覚悟」</span>を持って、迫りくる奇妙な運命や強敵たちに立ち向かうことになる。
+                </p>
+                <p class="mt-4">
+                    このゲームに必要なのは、計算高い戦略だけじゃない。<br>
+                    圧倒的な脅威（スタンドや怪異）を前にしても、「正しい道」を歩もうとする<strong>黄金の精神</strong>こそが、最強の武器となるんだ。<br>
+                    システムには20面ダイス（d20）を使用し、能力が高いほど成功しやすく、手数も増える「ダイスプール・ロールアンダー」形式を採用している。
+                </p>
+            </div>
+        </section>
+
+        <!-- 2. 世界観と舞台設定 -->
+        <section id="world" class="mb-16">
+            <h2 class="text-3xl font-bold mb-6 border-l-8 border-yellow-400 pl-4">2. 世界観・舞台設定</h2>
+            
+            <div class="mb-6">
+                <p class="mb-4 text-gray-700">
+                    舞台は現代社会、あるいは過去・未来の地球だ。一見平和に見える日常の裏側には、人知を超えた力が潜んでいる。<br>
+                    この世界には一つの鉄則がある。<strong>「スタンドはスタンドでしか倒せない」。</strong>
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold border-b pb-2">■ シナリオの舞台例（アーキタイプ）</h3>
+                <details class="group bg-white p-4 rounded shadow border-l-4 border-indigo-500" open>
+                    <summary class="text-lg text-indigo-900">現代・都市伝説スタイル（Urban Suspense）</summary>
+                    <div class="content-box">
+                        <p class="text-sm text-gray-700">
+                            <strong>舞台</strong>：現代日本の地方都市や、大都市の片隅。<br>
+                            <strong>特徴</strong>：日常の中に潜む恐怖。「隣人が殺人鬼かもしれない」「この路地裏には何かがいる」といったサスペンス要素が強くなる。<br>
+                            <strong>推奨技能</strong>：目星、調査、隠密、医学
+
+                        </p>
+                    </div>
+                    </details>
+                   <details class="group bg-white p-4 rounded shadow border-l-4 border-yellow-500">
+                    <summary class="text-lg text-yellow-900">世界旅行・冒険スタイル（Global Adventure）</summary>
+                    <div class="content-box">
+                        <p class="text-sm text-gray-700">
+                            <strong>舞台</strong>：世界各国。砂漠、海、雪山など。<br>
+                            <strong>特徴</strong>：目的のために旅をするロードムービー。次々と送り込まれる刺客との連戦。異文化や環境の違いも障害となる。<br>
+                            <strong>推奨技能</strong>：乗り物の操縦、知識、耐久、語学（インテリ判定）
+                        </p>
+                    </div>
+                </details>
+
+                </details>
+                <!-- 他の舞台例は省略（前verと同じ） -->
+            </div>
+        </section>
+
+        <!-- 3. 準備・役割 -->
+        <section id="prep" class="mb-16">
+            <!-- 前verと同じため省略 -->
+        </section>
+
+        <!-- 4. 本体作成 -->
+        <section id="character" class="mb-16">
+            <h2 class="text-3xl font-bold mb-6 border-l-8 border-yellow-400 pl-4">4. キャラクター作成（本体）</h2>
+            <p class="mb-4">PCはあくまで「人間（本体）」です。能力値は<strong>1〜6</strong>で決定します。</p>
+            
+            <div class="card overflow-hidden mb-6">
+                <h4 class="bg-gray-800 text-white p-2 font-bold">A. 基礎ステータス（1〜6）</h4>
+                <div class="p-4 bg-gray-50 border-b border-gray-200">
+                    <ul class="list-disc list-inside text-sm space-y-1">
+                        <li><strong>ラック（運）以外</strong>の5つの能力値に、合計<strong>15ポイント</strong>を自由に割り振ってください。</li>
+                        <li>各能力値の下限は1、上限は6です。数字が大きいほど高い力を持ちます。</li>
+                        <li><strong>ラック（運）</strong>は、別途<strong>1d6</strong>を振って決定します。</li>
+                    </ul>
+                </div>
+                <table class="w-full text-left text-sm">
+                    <tbody class="divide-y">
+                        <tr><td class="p-3 font-bold bg-gray-100 w-1/4">ボディ (体)</td><td class="p-3">筋力、体力、身体運動。</td></tr>
+                        <tr><td class="p-3 font-bold">センス (感)</td><td class="p-3">五感、器用さ、反射神経。</td></tr>
+                        <tr><td class="p-3 font-bold bg-gray-100">インテリ (知)</td><td class="p-3">知識、記憶力、論理的思考。</td></tr>
+                        <tr><td class="p-3 font-bold">メンタル (精)</td><td class="p-3">精神力、恐怖への耐性、意志。</td></tr>
+                        <tr><td class="p-3 font-bold bg-gray-100">チャーム (魅)</td><td class="p-3">交渉力、外見、威圧感。</td></tr>
+                        <tr><td class="p-3 font-bold">ラック (運)</td><td class="p-3">直感、強運、ギャンブル。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card p-4 bg-purple-50 border-purple-200">
+                <h4 class="font-bold text-purple-800">B. 技能（スキル）と消費ポイント</h4>
+                <p class="text-sm mb-2">初期ポイント<strong>「20点」</strong>を割り振り、技能レベル（Lv）を上げる。上限はLv3だ。<br>高レベルほどコストがかかる累計方式だ。</p>
+                <div class="bg-white p-3 rounded border border-purple-100 text-xs text-gray-600">
+                    <p><strong>【消費コスト表】</strong></p>
+                    <ul class="list-disc list-inside ml-2">
+                        <li>Lv 1 習得： <strong>1</strong> pt</li>
+                        <li>Lv 2 習得： <strong>5</strong> pt (1+4)</li>
+                        <li>Lv 3 習得： <strong>10</strong> pt (1+4+5)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. スタンド -->
+        <section id="stand" class="mb-16">
+            <!-- 前verと同じため省略（一心同体・半覚醒・パラメータ・能力等） -->
+        </section>
+
+        <!-- 6. 敵・怪異 -->
+        <section id="enemy" class="mb-16">
+            <!-- 前verと同じため省略 -->
+        </section>
+
+        <!-- 7. 判定ルール -->
+        <section id="rules" class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 border-l-8 border-yellow-400 pl-4">7. 判定ルール (d20 System)</h2>
+            <div class="card p-6 bg-gray-50">
+                <h3 class="text-2xl font-bold text-center text-purple-700 mb-4">下方判定 (Roll Under)</h3>
+                <p class="text-center mb-6 text-lg">
+                    ダイスの出目が<strong>「目標値以下」</strong>なら成功だ！
+                </p>
+
+                <!-- 判定の仕組み詳細 -->
+                <div class="bg-yellow-50 p-4 mb-6 rounded border border-yellow-200">
+                    <h4 class="font-bold text-sm mb-2 text-yellow-800">📊 判定の仕組み詳細</h4>
+                    <p class="text-xs text-gray-700 mb-2">
+                        「能力値が高い＝失敗しにくい（目標値が高い）」「技能がある＝試行回数が増える（ダイスが増える）」というロジックになっています。
+                    </p>
+                    <table class="w-full text-xs text-left bg-white border border-gray-300">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="p-2 border">判定タイプ</th>
+                                <th class="p-2 border">振るダイスの数 (Dice)</th>
+                                <th class="p-2 border">成功目標値 (Goal)</th>
+                                <th class="p-2 border">解説</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="p-2 border"><strong>能力値ダイス</strong></td>
+                                <td class="p-2 border">1個 (固定)</td>
+                                <td class="p-2 border">能力値 × 2</td>
+                                <td class="p-2 border">基本となるダイス。技能ダイスの代用や、単純な行動に使用する。もし探索などで対応する技能がなければ、これを代用して振ってみてほしい。</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 border"><strong>技能ダイス</strong></td>
+                                <td class="p-2 border"><strong>技能Lv</strong> 個</td>
+                                <td class="p-2 border">(能力値 × 2) + 技能Lv</td>
+                                <td class="p-2 border">専門的な技術を行使する場合に使用。</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 border"><strong>スタンド探索</strong></td>
+                                <td class="p-2 border"><strong>スタンドステータス</strong></td>
+                                <td class="p-2 border">本体能力値 × 3</td>
+                                <td class="p-2 border">スタンドを使った汎用的なアクション。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 難易度・クリティカル等は前verと同じ -->
+            </div>
+            
+            <div class="mt-4 bg-red-50 p-4 rounded border border-red-200">
+                <h4 class="font-bold text-red-800">SP精神力判定 (恐怖判定)</h4>
+                <p>恐怖や衝撃を受けた時： <code>1D50 <= {現在のSP}</code></p>
+                <p class="text-xs text-red-600">失敗するとSPが減少し、一時的狂気（パニック、金縛り等）に陥る。</p>
+            </div>
+        </section>
+
+        <!-- 8. 技能ガイド -->
+        <section id="skills" class="mb-12">
+            <!-- 前verと同じため省略 -->
+        </section>
+
+        <!-- 9. 探索パート詳細 -->
+        <section id="exploration" class="mb-12">
+            <!-- 前verと同じため省略 -->
+        </section>
+
+        <!-- 10. 戦闘・ラウンド -->
+        <section id="combat" class="mb-16">
+            <h2 class="text-3xl font-bold mb-6 border-l-8 border-red-500 pl-4 text-red-900">10. 戦闘・ラウンド進行</h2>
+            
+            <div class="mb-6 bg-white p-4 rounded shadow">
+                <h3 class="font-bold mb-2">📏 距離エリア (Range)</h3>
+                <div class="flex flex-wrap gap-2 text-center text-xs md:text-sm font-bold text-white">
+                    <div class="bg-red-500 p-2 rounded flex-1">近距離<br>(0-5m)</div>
+                    <div class="bg-orange-500 p-2 rounded flex-1">中距離<br>(~20m)</div>
+                    <div class="bg-yellow-500 p-2 rounded flex-1">遠距離<br>(~100m)</div>
+                    <div class="bg-blue-500 p-2 rounded flex-1">超遠距離<br>(それ以上)</div>
+                </div>
+                <p class="text-xs mt-2 text-gray-600">※互いに近距離の場合、第1ラウンドは<strong>射程が長い方が先制(不意打ち)</strong>できる。</p>
+            </div>
+
+            <!-- 戦闘フロー -->
+            <div class="space-y-4">
+                <!-- イニシアティブ等は前verと同じ -->
+                <div class="card p-4 border-l-8 border-gray-400">
+                    <h4 class="font-bold text-gray-700">① イニシアティブ (固定値)</h4>
+                    <p class="text-sm">ダイスは振らない。以下の値が高い順に行動する。</p>
+                    <ul class="text-sm ml-4 mt-1">
+                        <li><strong>一般人</strong>： <code>体 ＋ 運動Lv</code></li>
+                        <li><strong>スタンド使い</strong>： <code>スピード ＋ 体 ＋ 運動Lv</code></li>
+                    </ul>
+                </div>
+                <!-- 手番処理は省略 -->
+            </div>
+        </section>
+
+        <!-- 11. リソース管理 -->
+        <section id="resources" class="mb-16">
+            <h2 class="text-3xl font-bold mb-6 border-l-8 border-yellow-400 pl-4">11. HP / SP / STP 管理</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="bg-red-100 p-4 rounded border border-red-300">
+                    <h4 class="font-bold text-red-800">HP (生命力)</h4>
+                    <p class="text-sm mt-2">0で<strong>心肺停止</strong>。</p>
+                </div>
+                <div class="bg-purple-100 p-4 rounded border border-purple-300">
+                    <h4 class="font-bold text-purple-800">SP (精神力)</h4>
+                    <p class="text-sm mt-2">0で<strong>完全ロスト</strong>。</p>
+                </div>
+                <div class="bg-green-100 p-4 rounded border border-green-300">
+                    <h4 class="font-bold text-green-800">STP (スタミナ)</h4>
+                    <p class="text-sm mt-2">0でスタンド強制解除。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. ダメージと生死（新規追加セクション） -->
+        <section id="damage" class="mb-16">
+            <h2 class="text-3xl font-bold mb-6 border-l-8 border-red-600 pl-4 text-red-700">12. ダメージと生死の境</h2>
+            
+            <div class="space-y-6">
+                <!-- 気絶判定 -->
+                <div class="card p-4 border-l-4 border-yellow-500">
+                    <h4 class="font-bold text-lg mb-2">💫 気絶判定</h4>
+                    <p class="text-sm mb-2">
+                        一度に<strong>現在のHPの半分以上</strong>のダメージを受けた場合、衝撃に耐えられるかの判定を行う。
+                    </p>
+                    <div class="bg-yellow-50 p-3 rounded text-sm">
+                        <p><strong>判定式</strong>： <code>1B20 <= ボディ × 2</code></p>
+                        <p class="text-xs text-gray-600 mt-1">
+                            ※【耐久】や【メンタル】（1B20 <= 能力値×2）で代用可能。<br>
+                            ※スタンド攻撃を受けた場合、<strong>【持続力】（1B20 <= 持続力×2）</strong>で代用可能。<br>
+                            （ダメージが本体にフィードバックしないスタンドの場合は気絶判定なし）
+                        </p>
+                    </div>
+                    <p class="text-sm mt-2">
+                        <strong>失敗</strong>： 即座に気絶する。持続時間は基本 <code>1D10 × 10</code> 分（シナリオ進行によりKPが調整可）。
+                    </p>
+                </div>
+
+                <!-- 心肺停止と死亡 -->
+                <div class="card p-4 border-l-4 border-red-600">
+                    <h4 class="font-bold text-lg mb-2 text-red-800">☠️ 心肺停止と死亡</h4>
+                    <p class="text-sm mb-2">
+                        HPが0になったキャラクターは<strong>「心肺停止状態」</strong>となり、即座に倒れる。<br>
+                        この状態になった瞬間から、非戦闘時であっても<strong>ラウンド進行（時間管理）</strong>が開始される。
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 mt-3">
+                        <div class="bg-red-50 p-3 rounded">
+                            <strong class="text-red-700">① 毎ラウンドの死亡判定</strong>
+                            <p class="text-xs text-gray-700 mt-1">
+                                心肺停止キャラは、毎ラウンド終了時に以下の判定を行う。<br>
+                                <code>1B20 <= 耐久 or メンタル × 2</code><br>
+                                <strong>失敗すると死亡（ロスト）する。</strong>
+                            </p>
+                        </div>
+                        <div class="bg-green-50 p-3 rounded">
+                            <strong class="text-green-700">② 蘇生措置</strong>
+                            <p class="text-xs text-gray-700 mt-1">
+                                他のキャラが行動して蘇生を試みることができる。<br>
+                                <strong>成功条件</strong>：<br>
+                                ・【医学】技能で判定に成功する。<br>
+                                ・精密動作Aのスタンドで心臓をマッサージする（KP許可が必要）。<br>
+                                成功すればHP1で意識を取り戻す。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SP 0 -->
+                <div class="card p-4 border-l-4 border-purple-600 bg-purple-50">
+                    <h4 class="font-bold text-lg mb-2 text-purple-800">👻 魂の消滅（SP 0）</h4>
+                    <p class="text-sm">
+                        SPが0になった場合、魂が抜けたようになり動かなくなる。<br>
+                        これは精神の死を意味し、<strong>永遠にそのキャラクターは使えなくなる（ロスト）。</strong>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 13. 報酬と成長 -->
+        <section id="reward" class="mb-16">
+            <h2 class="text-3xl font-bold mb-6 border-l-8 border-yellow-400 pl-4">13. 報酬と成長</h2>
+            <div class="card bg-yellow-50 border-yellow-200">
+                <ol class="list-decimal list-inside space-y-3">
+                    <li><strong>技能ポイント獲得</strong>：確率で活躍に応じて1〜5点ボーナスPを獲得し、技能を伸ばせる。（KP裁量）<br><span class="text-xs text-gray-500 pl-6">※Lv1=1pt, Lv2=5pt, Lv3=10pt (累計)</span></li>
+                    <li><strong>スタンドの成長</strong>：「成長性」が高いスタンドや、死線を潜り抜けたスタンドは、パラメータが上昇したり、新たな能力（ACT進化）にセッション中目覚める可能性がある（KP裁定）。</li>
+                    <li><strong>SPの回復</strong>：減少したSPがシナリオごとに決めれた量回復する</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- EX. KPガイド -->
+        <section id="kp" class="mb-16 border-t-4 border-gray-300 pt-10">
+            <h2 class="text-3xl font-bold mb-6 text-gray-600">EX. KPガイド (For Game Masters)</h2>
+            
+            <!-- スタンド・敵・シナリオ作成ガイド（前verと同じ） -->
+            <div id="kp-stand" class="mb-8">
+                <h3 class="font-bold text-xl mb-3 text-indigo-700">14. KPガイド：スタンド作成のコツ</h3>
+                <p class="text-sm mb-4">PCのスタンドはKPが決めることを推奨するぜ。（名前はPLに決めさせてやってくれ）以下の指針を参考にしてくれ。</p>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-white p-4 rounded shadow">
+                        <h4 class="font-bold text-sm mb-2">強みと弱みを作る</h4>
+                        <p class="text-xs text-gray-600">全てAランクにするのではなく、「破壊力はAだが射程はE（2mしか動けない）」のように極端なステータスにするとジョジョらしくなる。</p>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow">
+                        <h4 class="font-bold text-sm mb-2">能力に「ルール」を持たせる</h4>
+                        <p class="text-xs text-gray-600">単に「火を操る」だけでなく、「ライターの火を増幅することしかできない」「円の中でしか燃やせない」などの制約をつけると、攻略の糸口になる。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="kp-enemy" class="mb-8">
+                <h3 class="font-bold text-xl mb-3 text-red-700">15. KPガイド：敵データ作成目安</h3>
+                
+                <!-- Updated Table based on request: Removing specific stats (Power/HP) -->
+                <div class="overflow-x-auto mb-6">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th class="w-1/4">種類</th>
+                                <th>設定目安</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-bold">雑魚</td>
+                                <td>
+                                    <p class="text-sm">特殊能力なし。数で攻める。ゾンビやチンピラなど。</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">中ボス</td>
+                                <td>
+                                    <p class="text-sm">強力な固有能力あり。1話完結シナリオのボス格。</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">ラスボス</td>
+                                <td>
+                                    <p class="text-sm">長いキャンペーンの最後に登場。時間操作、因果律干渉などの世界に干渉する能力を持つ。</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Added detailed creation guide (Previously added) -->
+                <div class="bg-white p-5 rounded shadow border border-gray-200">
+                    <h4 class="font-bold text-lg mb-3 border-b pb-2">👾 詳細な敵データ作成オプション</h4>
+                    
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <h5 class="font-bold text-red-800 text-sm">▼ 種族・特徴例</h5>
+                            <ul class="list-disc list-inside text-xs text-gray-700 space-y-1 mt-1">
+                                <li><strong>人間：</strong> 通常のスタンド使い。再起不能で終了。</li>
+                                <li><strong>吸血鬼/屍生人：</strong> 太陽・波紋に弱い。HP再生能力(毎R 1d5回復など)を持たせると脅威度UP。</li>
+                                <li><strong>怪異：</strong> 物理無効、特定の儀式でのみ退散可能。</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h5 class="font-bold text-purple-800 text-sm">▼ 性格・行動パターン</h5>
+                            <ul class="list-disc list-inside text-xs text-gray-700 space-y-1 mt-1">
+                                <li><strong>慢心：</strong> 自分の能力をペラペラ喋る（ヒントを与える）。</li>
+                                <li><strong>執着：</strong> 特定のPC（一番強い奴、または弱い奴）だけを狙う。</li>
+                                <li><strong>臆病：</strong> 遠距離から一方的に攻撃し、近づかれると逃げる。</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <h5 class="font-bold text-blue-800 text-sm">▼ 弱点・攻略ギミックの例</h5>
+                        <p class="text-xs text-gray-600 mt-1 mb-2">無敵に見える能力でも、必ず「攻略法」を用意するのがジョジョ流だ。</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 border border-gray-300 px-2 py-1 text-xs rounded">射程距離外に逃げる</span>
+                            <span class="bg-gray-100 border border-gray-300 px-2 py-1 text-xs rounded">本体の呼吸が必要</span>
+                            <span class="bg-gray-100 border border-gray-300 px-2 py-1 text-xs rounded">日光・鏡・水</span>
+                            <span class="bg-gray-100 border border-gray-300 px-2 py-1 text-xs rounded">特定の動作がトリガー</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="kp-scenario" class="mb-8">
+                <h3 class="font-bold text-xl mb-3 text-pink-700">16. KPガイド：シナリオ作成論</h3>
+                <div class="space-y-4">
+                    <div class="card p-4">
+                        <h4 class="font-bold mb-2 text-purple-800">① 通常シナリオ（スタンドバトル）</h4>
+                        <p class="text-sm">
+                            <strong>謎から始める</strong>：敵の姿を見せず、不可解な現象（時間が飛ぶ、体が縮む）からスタートさせる。<br>
+                            <strong>地形利用</strong>：鏡の迷路、下水道、満員電車など、ギミックのある場所を戦場にする。<br>
+                            <strong>知恵比べ</strong>：「本体を見つけないと攻撃できない遠隔操作型」「鏡の中に逃げる」など、一筋縄ではいかないギミックを持たせるんだ。<br>
+                            <strong>動揺</strong>：SP判定を使い追い詰める。SP減少でどのようなペナルティ（例: SP-5で手が震える）が起きるか決めておくと良いだろう。
+                        </p>
+                    </div>
+                    
+                    <div class="card p-4 bg-gray-50 border-gray-200">
+                        <h4 class="font-bold mb-2 text-red-800">SP減少によるペナルティ表 (例)</h4>
+                        <p class="text-xs text-gray-700 mb-2">恐怖や動揺でSPが減った時、どのようなペナルティを与えるか決めておくと緊張感が増す。</p>
+                        <table class="w-full text-xs text-left border">
+                            <tr class="bg-gray-100"><th class="p-2 border">減少量</th><th class="p-2 border">状態・ペナルティ</th></tr>
+                            <tr><td class="p-2 border">合計 -5</td><td class="p-2 border">手が震える（精密動作-2）、冷や汗</td></tr>
+                            <tr><td class="p-2 border">合計 -10</td><td class="p-2 border">動悸、軽い幻覚（観察-2）、判断力の低下</td></tr>
+                            <tr><td class="p-2 border">現在値半分以下</td><td class="p-2 border">パニック（冷静な判断・分析が不能になる）</td></tr>
+                            <tr><td class="p-2 border">0</td><td class="p-2 border">魂の消滅（ロスト）</td></tr>
+                        </table>
+                    </div>
+                    
+                    <div id="kp-horror" class="card p-4 bg-indigo-50 border-indigo-200">
+                        <h4 class="font-bold mb-2 text-indigo-800">② 怪異・ホラーシナリオ（独立項目）</h4>
+                        <p class="text-sm mb-2">
+                            戦闘ではなく「脱出」や「解明」を目的とする。<br>
+                            怪異が出ているなら自由でいい。協力的なNPCを出してヒントを与えてもいいし、戦闘メインでも、エモーショナルな物語でも、なんでもありだ。
+                        </p>
+                        <ul class="text-sm list-disc list-inside space-y-2 text-gray-700">
+                            <li><strong>強力なルール</strong>： 「後ろを振り向いてはいけない」「マナー違反をすると身体の一部を奪われる」など、破った瞬間に即死または大ダメージを受けるルールを設定する。</li>
+                            <li><strong>戦える怪異</strong>： 実体を持ち、スタンドで殴れる怪異がいても構わない。ただし、物理耐性や特殊な再生能力を持たせると良いだろう。</li>
+                            <li><strong>恐怖体験</strong>： SP判定を多用し、精神的に追い詰める演出を行う。SP減少でどのようなペナルティ（例: SP-5で手が震える）が起きるか決めておくと良いだろう。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-xs py-10 mt-10 border-t">
+            <p>Based on "JoJo's Bizarre Adventure" by Hirohiko Araki.</p>
+            <p>Unofficial TRPG System.</p>
+        </footer>
+
+    </main>
+    
+    <!-- スクロールスクリプト -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // サイドバーのアクティブ表示
+        const sections = document.querySelectorAll('section');
+        const navLi = document.querySelectorAll('.sidebar-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLi.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
