@@ -118,7 +118,7 @@
             <h2 class="text-4xl font-bold border-b-4 border-purple-800 pb-2 mb-6 inline-block menacing">1. イントロダクション</h2>
             
             <div class="card p-8">
-                <h3 class="text-2xl font-bold text-purple-800 mb-3">運命のダイスを振る準備はいい？</h3>
+                <h3 class="text-2xl font-bold text-purple-800 mb-3">運命のダイスを振る準備はいいかな？</h3>
                 <p class="mb-4 leading-relaxed">
                     このTRPGは、荒木飛呂彦先生の漫画『ジョジョの奇妙な冒険』の世界観をベースにした、オリジナルTRPGシステム<br>
                     プレイヤーは運命に選ばれた<strong>「スタンド使い」</strong>となり、知恵と勇気、そして<span class="highlight">「覚悟」</span>を持って、迫りくる奇妙な運命や強敵たちに立ち向かうことになる。
@@ -126,7 +126,7 @@
                 <p class="mt-4">
                     このゲームに必要なのは、強い力や計算高い戦略だけじゃない。<br>
                     圧倒的な脅威（スタンドや怪異）を前にしても、「正しい道」を歩もうとする<strong>黄金の精神</strong>や目的のためなら殺人も厭わない<strong>漆黒の意思</strong>こそが、最強の武器となるんだ。<br>
-                    システムには20面ダイス（d20）を使用し、能力が高いほど成功しやすく、手数も増える「ダイスプール・ロールアンダー」形式を採用している。
+                    このシステムは基本的に20面ダイスを採用していて成功数でどのくらいの成功なのか決める。
                 </p>
             </div>
         </section>
@@ -175,7 +175,7 @@
                 <h3 class="font-bold text-lg border-b pb-2 mb-4">用意するもの</h3>
                 <ul class="space-y-2 mb-6">
                     <li>🎲 <strong>20面ダイス (d20)</strong>：メイン判定用。1人5〜10個あると良い（アプリ可）。</li>
-                    <li>🎲 <strong>100面ダイス (d100/d50)</strong>：精神力判定用。d10×2個でも代用可。</li>
+                    <li>🎲 <strong>50面ダイス (d50)</strong>：精神力判定用</li>
                     <li>📝 <strong>キャラクターシート</strong>：配布ツールを使おう。</li>
                     <li>🖊️ <strong>筆記用具・メモ</strong>：謎解きや情報の整理に必須だ。</li>
                     <li>🔥 <strong>覚悟</strong>：困難に立ち向かう心。</li>
@@ -238,7 +238,7 @@
             
             <div class="mb-6">
                 <p class="text-xl font-bold italic text-center mb-4 text-gray-700">
-                    「傍にいて、貴方と共に試練に立ち向かう者」
+                    「常に傍にいて、共に試練に立ち向かう者」
                 </p>
                 <div class="grid md:grid-cols-2 gap-4">
                     <div class="card p-5 bg-purple-900 text-white">
@@ -508,7 +508,7 @@
                             <tr>
                                 <td class="p-2 border"><strong>スタンドダイス</strong></td>
                                 <td class="p-2 border"><strong>スタンドステータス</strong></td>
-                                <td class="p-2 border">本体能力値 × 3　直接攻撃やラッシュは精密動作</td>
+                                <td class="p-2 border">本体能力値 × 3 但し破壊力だけは精密動作となる</td>
                                 <td class="p-2 border">スタンドを使った汎用的なアクションやスタンド攻撃等</td>
                             </tr>
                         </tbody>
@@ -640,12 +640,12 @@
                         <ul class="text-xs text-gray-600 pl-4 mb-3 list-disc">
                             <li>目標値は精密A:18, B:14, C:10, D:6, E:2</li>
                             <li>(攻撃成功数+相手回避成功数)×破壊力×3-2-ダメージ軽減</li>
-                            <li>人型でスピードB以上なら「ラッシュ」も可能。ラッシュはラッシュとスタンド以外の攻撃（怪異等の例外を除く）に対してのみ対抗が可能。成功数1につきダメージ軽減。相手の成功数を超えた場合分を超えた分B20の成功数を相手にカウンターとしてダメージを与えれる</li>
+                            <li>人型でスピードB以上なら「ラッシュ」も可能。ラッシュはラッシュとスタンド以外の攻撃（怪異等の例外を除く）に対してのみ対抗が可能。成功数1につきダメージ軽減。相手の成功数を超えた場合分を超えた分B20の成功数を相手にカウンターとしてダメージを与えれる。またスピードBはラッシュのダイスを1、Aは2回振り直す事が出来る</li>
                         </ul>
                         <p class="mb-2 font-bold text-pink-700">B. 能力攻撃（特殊・異能）</p>
                         <ul class="text-xs text-gray-600 pl-4 mb-3 list-disc">
                             <li>火炎、氷結、毒、飛び道具など。</li>
-                            <li>判定：KPが指定する（通常は精密動作性、あるいは本体のセンス）。</li>
+                            <li>判定：精密動作性、本体のセンスロールとなる。難しい能力の使い方になると出来なかったり目標値が低くなる）。</li>
                             <li><strong>ダメージ ＝ KPが設定した基準値</strong>（例：固定3点、1d6点など）</li>
                         </ul>
                         <p class="mb-2"><strong>B. 移動</strong>：攻撃を放棄し、距離エリアを変更する。</p>
