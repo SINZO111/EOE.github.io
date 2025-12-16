@@ -175,7 +175,7 @@
                 <h3 class="font-bold text-lg border-b pb-2 mb-4">用意するもの</h3>
                 <ul class="space-y-2 mb-6">
                     <li><strong>20面ダイス (d20)</strong>：メイン判定用。1人5〜10個あると良い（アプリ可）</li>
-                    <li><strong>60面ダイス (d60)</strong>：SP判定用</li>
+                    <li><strong>100面ダイス (d100)</strong>：SP判定用</li>
                     <li><strong>キャラクターシート</strong>：配布ツールを使おう</li>
                     <li><strong>筆記用具・メモ</strong>：謎解きや情報の整理に必須</li>
                     <li><strong>覚悟</strong>：困難に立ち向かう心</li>
@@ -528,13 +528,13 @@
                     </div>
                     <div class="flex-1 bg-red-100 p-3 rounded border border-red-300 text-center">
                         <strong class="text-red-700">ディザスターとファイナルディザスター (出目20)</strong><br>
-                        <span class="text-sm">成功数-1はディザスター成功数0 かつ 20が出たらファイナルディザスターとなり恐ろしい事が起きる</span>
+                        <span class="text-sm">20が出た場合はディザスターとなり他の成功数を無視して成功数は0となる。また成功数0 かつ 20が出たらファイナルディザスターとなり恐ろしい事が起きる</span>
                     </div>
                 </div>
                 
                 <div class="mt-4 p-4 border border-gray-300 rounded">
                     <h4 class="font-bold text-sm">判定の難易度（ダイスボーナス）</h4>
-                    <p class="text-xs text-gray-600">KPは状況に応じて目標値を修正する。ただし<strong class="text-red-600">目標値の上限は19</strong>（20は常に失敗）</p>
+                    <p class="text-xs text-gray-600">KPは状況に応じて目標値を修正する。ただし<strong class="text-red-600">目標値の上限は19</strong>（20が出た場合は他の成功数を無視して成功数は0となる）</p>
                     <ul class="list-disc list-inside text-sm mt-1">
                         <li><strong>有利 (Easy)</strong>: 目標値 <strong>+2 〜 +4</strong> (高所、不意打ち、弱点)</li>
                         <li><strong>不利 (Hard)</strong>: 目標値 <strong>-2 〜 -4</strong> (暗闇、拘束、動揺)</li>
@@ -544,7 +544,7 @@
             
             <div class="mt-4 bg-red-50 p-4 rounded border border-red-200">
                 <h4 class="font-bold text-red-800">SP判定(スタンド行動に失敗した時)</h4>
-                <p>スタンド行動に失敗した時： <code>1D60 <= {現在のSP}</code></p>
+                <p>スタンド行動に失敗した時： <code>1D100 <= {現在のSP}</code></p>
                 <p class="text-xs text-red-600">SP判定に失敗するとSPが1d6減少し、ディザスターだと更に1d20減少する。ファイナルディザスターだと大幅減少1d60となる</p>
             </div>
         </section>
@@ -641,7 +641,7 @@
                     </ul>
                 </div>
                <div class="card p-4 border-l-8 border-purple-600 bg-purple-50">
-                    <h4 class="font-bold text-purple-900">② 自分の手番 (スタンドonの場合毎ターンSTP-2、スタンド行動STP-2)</h4>
+                    <h4 class="font-bold text-purple-900">② 自分の手番 (スタンドonの場合毎ターンSTP-1、スタンド行動STP-2)</h4>
                     <div class="text-sm mt-2">
                         <p class="mb-2"><strong>A. 攻撃</strong>：<code>スタンドon状態のみ【破壊力】数 B20 <= 精密×4-2)【格闘や射撃等の戦う技能】数 B20 <=通常目標値</code></p>
                         <ul class="text-xs text-gray-600 pl-4 mb-3 list-disc">
@@ -736,7 +736,7 @@
                 <div class="card p-4 border-l-4 border-purple-600 bg-purple-50">
                     <h4 class="font-bold text-lg mb-2 text-purple-800"> 魂の旅立ち（SP 0）</h4>
                     <p class="text-sm">
-                        SPが0になった場合、貴方の制御から外れスタンドが暴走しその後貴方は魂が抜けたようになり動かなくなる<br>
+                        SPが0になった場合、スタンドが暴走し貴方の制御から外れその後貴方は魂が抜けたようになり動かなくなる<br>
                         これは魂が別世界へと旅立った事を意味し、<strong>永遠にそのキャラクターは使えなくなる（ロスト）</strong>
                     </p>
                 </div>
