@@ -125,8 +125,8 @@
                 </p>
                 <p class="mt-4">
                     このゲームに必要なのは、なにも強い力や計算高い戦略だけじゃあない<br>
-                    圧倒的な脅威（スタンドや怪異）を前にしても、自分が正しいと思う道を歩もうとする<strong>黄金の精神</strong>や目的のためなら殺人も厭わない<strong>漆黒の意思</strong>こそが、一番必要…かもな<br>
-                    このシステムは基本的に20面ダイスを採用していて成功数でどのくらいの成功なのか決めるだぜッ！
+                    圧倒的な脅威（スタンドや怪異）を前にしても、自分が正しいと思う道を歩もうとする<strong>黄金の精神</strong>や目的のためなら殺人も厭わない<strong>漆黒の意思</strong>こそが、一番必要だろう<br>
+                    このシステムは基本的に20面ダイスを採用していて成功数でどのくらいの成功なのか決める
                 </p>
             </div>
         </section>
@@ -137,7 +137,7 @@
             <div class="mb-6">
                 <p class="mb-4 text-gray-700">
                     舞台は現代社会、あるいは過去・未来の地球…なんでもありと思ってもらって構わない。そして…どんな所にも不思議な力…そうスタンドは潜んでいる。え、いないって？それは貴方が見ようとしないからである<br>
-                    まあ、この世界には色々とルールがあるんだけどまあ有名なのは<strong>「スタンドはスタンドでしか倒せない」かな</strong>
+                    まあ、この世界には色々とルールがあるんだけどまあ有名なのは<strong>「スタンドはスタンドでしか倒せない」かと</strong>
                 </p>
             </div>
 
@@ -398,7 +398,7 @@
                 <div class="bg-purple-100 p-4 rounded border border-purple-300">
                     <h4 class="font-bold text-purple-800">SP (魂値)</h4>
                     <p class="text-sm mt-2">(インテリ+メンタル)×5でSPは決まる。0で<strong>魂値がなくなり完全ロスト</strong></p>
-                    <p><strong>恐怖判定</strong>: <code>1D50 <= SP</code></p>
+                    <p><strong>スタンド行動失敗判定</strong>: <code>1D60 <= SP</code></p>
                     <p><strong>覚悟</strong>:セッション中覚悟を決めると出来る事</p>
                             <p><strong>1つ目</strong>：SP1消費 → STP2回復</p>
                             <p><strong>2つ目</strong>：回避や防御をする際SP10消費で1ターン回避と防御のダイス数を+1、目標値+10する</p>
@@ -544,8 +544,8 @@
             
             <div class="mt-4 bg-red-50 p-4 rounded border border-red-200">
                 <h4 class="font-bold text-red-800">SP判定(スタンド行動に失敗した時)</h4>
-                <p>スタンド行動に失敗した時： <code>1D50 <= {現在のSP}</code></p>
-                <p class="text-xs text-red-600">失敗するとSPが減少し、ディザスターだと更に減少する</p>
+                <p>スタンド行動に失敗した時： <code>1D60 <= {現在のSP}</code></p>
+                <p class="text-xs text-red-600">SP判定に失敗するとSPが1d6減少し、ディザスターだと更に1d20減少する。ファイナルディザスターだと大幅減少1d60となる</p>
             </div>
         </section>
 
@@ -734,9 +734,9 @@
                 </div>
 
                 <div class="card p-4 border-l-4 border-purple-600 bg-purple-50">
-                    <h4 class="font-bold text-lg mb-2 text-purple-800"> 魂の消滅（SP 0）</h4>
+                    <h4 class="font-bold text-lg mb-2 text-purple-800"> 魂の旅立ち（SP 0）</h4>
                     <p class="text-sm">
-                        SPが0になった場合、魂が抜けたようになり動かなくなる<br>
+                        SPが0になった場合、貴方の制御から外れスタンドが暴走しその後貴方は魂が抜けたようになり動かなくなる<br>
                         これは魂が別世界へと旅立った事を意味し、<strong>永遠にそのキャラクターは使えなくなる（ロスト）</strong>
                     </p>
                 </div>
@@ -747,10 +747,9 @@
             <h2 class="text-3xl font-bold mb-6 border-l-8 border-yellow-400 pl-4">13. 報酬と成長</h2>
             <div class="card bg-yellow-50 border-yellow-200">
                 <ol class="list-decimal list-inside space-y-3">
-                    <li><strong>技能ポイント獲得</strong>：確率で活躍に応じて1〜5点ボーナスPを獲得し、技能を伸ばせる。（KP裁量）<br><span class="text-xs text-gray-500 pl-6">※Lv1=1pt, Lv2=5pt, Lv3=10pt (累計)</span></li>
+                    <li><strong>技能ポイント獲得</strong>：確率で活躍に応じて1〜5点ボーナスPを獲得し、技能を伸ばせる。（KP裁量）<br><span class="text-xs text-gray-500 pl-6">『人の成長は…』未熟な過去に打ち勝つことだとな…)</span></li>
                     <li><strong>スタンドの成長</strong>：「成長性」が高いスタンドや、死線を潜り抜けたスタンドは、パラメータが上昇したり、新たな能力（ACT進化）にセッション中目覚める可能性がある（KP裁定）</li>
                     <li><strong>SPの回復</strong>：減少したSPがシナリオごとに決めれた量回復する</li>
-                    <li>『人の成長は…』未熟な過去に打ち勝つことだとな…</li>
                 </ol>
             </div>
         </section>
