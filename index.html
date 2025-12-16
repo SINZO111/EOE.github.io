@@ -175,7 +175,7 @@
                 <h3 class="font-bold text-lg border-b pb-2 mb-4">用意するもの</h3>
                 <ul class="space-y-2 mb-6">
                     <li><strong>20面ダイス (d20)</strong>：メイン判定用。1人5〜10個あると良い（アプリ可）</li>
-                    <li><strong>50面ダイス (d50)</strong>：SP判定用</li>
+                    <li><strong>60面ダイス (d60)</strong>：SP判定用</li>
                     <li><strong>キャラクターシート</strong>：配布ツールを使おう</li>
                     <li><strong>筆記用具・メモ</strong>：謎解きや情報の整理に必須</li>
                     <li><strong>覚悟</strong>：困難に立ち向かう心</li>
@@ -524,11 +524,11 @@
 　　　　　　　　　　<div class="mt-6 flex flex-col md:flex-row gap-4">
                     <div class="flex-1 bg-yellow-100 p-3 rounded border border-yellow-300 text-center">
                         <strong class="text-yellow-700">クリティカル (出目1)</strong><br>
-                        <span class="text-sm">クリティカルの時はさらにダイスを1個追加して振る、その結果を元の結果に上乗せする。これをクリティカルが出続ける限り繰り返す</span>
+                        <span class="text-sm">クリティカルの時はさらにダイスを1個追加して振る、その結果を元の結果に上乗せする。これをクリティカルが出続ける限り繰り返す（繰り返した後20が出てもそれはディザスターになることはなくSP判定もなし）</span>
                     </div>
                     <div class="flex-1 bg-red-100 p-3 rounded border border-red-300 text-center">
-                        <strong class="text-red-700">ディザスター (出目20)</strong><br>
-                        <span class="text-sm">成功数-1そして成功数0 かつ 20が出たら大失敗となり恐ろしい事が起きる</span>
+                        <strong class="text-red-700">ディザスターとファイナルディザスター (出目20)</strong><br>
+                        <span class="text-sm">成功数-1はディザスター成功数0 かつ 20が出たらファイナルディザスターとなり恐ろしい事が起きる</span>
                     </div>
                 </div>
                 
@@ -543,9 +543,9 @@
             </div>
             
             <div class="mt-4 bg-red-50 p-4 rounded border border-red-200">
-                <h4 class="font-bold text-red-800">SP精神力判定(深い悲しみやショック、耐え難い恐怖)</h4>
-                <p>余りの恐怖や衝撃を受けた時： <code>1D50 <= {現在のSP}</code></p>
-                <p class="text-xs text-red-600">失敗するとSPが大幅に減少する</p>
+                <h4 class="font-bold text-red-800">SP判定(スタンド行動に失敗した時)</h4>
+                <p>スタンド行動に失敗した時： <code>1D50 <= {現在のSP}</code></p>
+                <p class="text-xs text-red-600">失敗するとSPが減少し、ディザスターだと更に減少する</p>
             </div>
         </section>
 
@@ -737,7 +737,7 @@
                     <h4 class="font-bold text-lg mb-2 text-purple-800"> 魂の消滅（SP 0）</h4>
                     <p class="text-sm">
                         SPが0になった場合、魂が抜けたようになり動かなくなる<br>
-                        これは魂がその肉体から離れたことを意味し、<strong>永遠にそのキャラクターは使えなくなる（ロスト）</strong>
+                        これは魂が別世界へと旅立った事を意味し、<strong>永遠にそのキャラクターは使えなくなる（ロスト）</strong>
                     </p>
                 </div>
             </div>
